@@ -17,8 +17,11 @@ namespace DemoUnitTests.Tests.API.Utils
         [Fact]
         public void ToTitle_withWitheSpaces()
         {
-            string result = StringUtils.ToTitle("Ceci   est une     chaine de caractères   ");
-            Assert.Equal("Ceci Est Une Chaine De Caractères", result);
+            string initial = "Ceci   est une     chaine de caractères   ";
+            string expected = "Ceci Est Une Chaine De Caractères";
+
+            string result = StringUtils.ToTitle(initial);
+            Assert.Equal(expected, result);
         }
 
         [Theory]
@@ -27,8 +30,10 @@ namespace DemoUnitTests.Tests.API.Utils
         [InlineData("cECI eST uNE cHAINE dE cARACTÈRES")]
         public void ToTitle_withVariousCase(string value)
         {
+            string expected = "Ceci Est Une Chaine De Caractères";
+
             string result = StringUtils.ToTitle(value);
-            Assert.Equal("Ceci Est Une Chaine De Caractères", result);
+            Assert.Equal(expected, result);
         }
 
         [Theory]
